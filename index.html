@@ -2,30 +2,35 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="style2.css">     
+    <title>Login</title>     
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
-
-
+    <link rel="stylesheet" type="text/css" href="style2.css">    
+    <script type="text/javascript" src="jss.js"></script>
 </head>
-<body>
-	<div id="center" class="container">
-		<div class="text-center">
-			<div class="row">
-				<div class="col-lgl-12">
-					<img id="img_login" src="img_utn.PNG" />
-					<br>
-					<label for="nombre">Nombre:</label>
-					<input type="text" value="Admin" id="last_name" name="last_name" size="16" maxlength="15" class="required" ></input>
-					<br> </br>
-					<label for="password"> Password:</label>
-					<input type="password" value="Admin" size="15" maxlength="15" class="required" id="password" name="password"></input>
-					<br> <br>
-					<a href="Inicio/inicio.html" target="_self"> <input type="button" class= "ingress" name="Ingresar" value="Ingresar" /> </a>
-				</div>
-			</div>					
+	<body>
+		<div>
+			<br><br><br><br><br><br><br><br><br>
 		</div>	
-	</div> 
-</body>
+		<div class="container">
+	      <div class="row">
+	        <div class="col-xs-12 col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3">
+	        	<img id="img_login" src="http://www.delefoco.com/Uploads/Perfiles/72_p333_0.jpg"> </img>
+				<br><br>
+	             <form>
+	                    <div class="form-group">
+	                        <label for="inputUsser">Usuario</label>
+	                        <input type="text" name="nombre" class="form-control" id="inputUsser" placeholder="Usuario">
+	                    </div>
+	                    <div class="form-group">
+	                        <label for="inputPassword">Password</label>
+	                        <input type="text" name="password" class="form-control" id="inputPassword" placeholder="Password">
+	                    </div> 
+	                    <br><br>                   
+	                    <button type="submit" href="Inicio/inicio.html" class="btn btn-primary" onclick="validarLogin();" >Login</button>
+	            </form>
+	        </div>
+	      </div>
+	    </div>
+	</body>
 </html>
+
