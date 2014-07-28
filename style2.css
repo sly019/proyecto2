@@ -1,3 +1,8 @@
+/*se expande la pagina*/
+html, body{
+	height: 100%;
+}
+
 /*pagina login*/
 img#img_login{
     display: block;
@@ -5,3 +10,58 @@ img#img_login{
     margin-left: auto;
 }
 
+div.rowLogin{
+    margin-top: 10%;
+}
+
+/*estilo del usuario q ingreso*/
+ input#nombreUsuario {
+ 	border: none;
+ 	width: 50%;
+ 	font-size:16pt;
+ 	font-weight: bold;
+ 	color: blue;
+ }
+
+/*centra los links principales*/
+div.rowBarra{
+    text-align: center;
+    margin-top: 13px;
+}
+
+/*aumenta tamaño de letra de pag inicio*/
+.label {  
+  font-size: 105%; 
+}
+
+/*margenes del contenedor wrapper*/
+.wrapper {
+	min-height: 100%;
+	height: 100%;
+	margin: 0 auto -60px;
+}
+
+/*aumenta tamaño de letra de pag inicio*/
+footer{
+    font-family:"Trebuchet MS";
+    background: none repeat scroll 0 0 black;
+    margin-top:10px;
+    padding:5px 5px;
+  	width:100%;
+    height:50px;
+    text-align:center;
+    border-top: 5px solid green;
+    border-left: 5px solid blue; 
+    border-right: 5px solid blue;
+    border-bottom: 5px solid green;
+    font-size:14px;
+    color: red;
+}
+
+form#info{
+    width:auto;
+    height:auto;
+    padding: 50px 150px; 
+    float: left;
+    margin: 0px;
+}

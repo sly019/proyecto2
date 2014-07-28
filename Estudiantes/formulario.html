@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Formulario</title>
+        <link rel="stylesheet" type="text/css" href="../style2.css">  
+        <script type="text/javascript" src="../jss.js"></script> 
+        <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    </head>
+    <body>	
+        <div>
+            <h1>Formulario de habilidades del estudiante</h1>                      
+           
+        </div>   
+            <form id="info" action="salvar.php" method="get" name="form_1">
+                <label for="nombre">Nombre</label>
+                <input type="text" size="16" maxlength="15" id="nombre" name="nombre"></input>
+                <br/><br/>
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" name="apellido" ></input>
+                <br />  <br/>   
+                <label for="cedula">Cedula</label>
+                <input type="text" size="16" maxlength="15" id="cedula" name="cedula"></input>
+                <br/><br/>                           
+                <label for="pais">Pa&iacute;s</label>
+                <select id="pais" >
+                    <option value="_"></option>
+                    <option selected="false" value="Cr">Costa Rica</option>
+                    <option value="Us">USA</option>
+                    <option value="Nic">Nicaragua</option>
+                    <option value="Pan">Panama</option>
+                </select>
+                <br/> <br/>               
+                <label for="gender">Género</label>
+                <input type="radio" id="genero" value= "Femenindo" name="genero" >Femenino</input>
+                <input type="radio" id="genero" value= "Hombre" name="genero" >Homcbre</input>
+                <br /> <br />
+                <label for="Carrera">Carrera</label>
+                <select id="Carrera" name="Carrera">
+                    <option value="_"></option>
+                    <option value="Informatica">Informatica</option>
+                    <option value="Salud_amb">Salud ambiental</option>
+                    <option value="Administracion">Administracion</option>                    
+                </select>
+                <br /> <br /> 
+                <label for="Estado">Estado</label>
+                <select id="Estado" name="Estado">
+                    <option value="_"></option>
+                    <option value="bachi_fin">Bachiller finalizado   </option>
+                    <option value="Diplo_curso">Diplomado en curso    </option>
+                    <option value="Lic_final">Licenciatura finalizada  </option>                    
+                </select>    
+                <br /> <br />
+                <textarea class="texarea" readonly  name="Proyectos" rows="5" cols="30" > Aquí Proyectos desarrollados </textarea>            
+            </form>
+            <div id="button_Proyecto">
+                <h2>Proyectos desarrollados</h2>                                        
+                <button onclick="Funcion_proyecto()">Agregar</button>          
+            </div> 
+
+            <div class="principal_float">
+                 <div class="float">
+                    <h2>Destrezas</h2>
+                    <label for="Creativo">Creativo</label>
+                    <input type="checkbox" id="creativo" name="creativo"></input> <br />
+                    <label for="responsable">Responsable</label>
+                    <input type="checkbox" id="responsable" name="responsable"></input> <br />
+                    <label for="solidaridad">Solidario</label>
+                    <input type="checkbox" id="solidaridad" name="solidaridad"></input> <br />
+                    <label for="trab_equipo">Trabajo en equipo</label>
+                    <input type="checkbox" id="trab_equipo" name="trab_equipo"></input> <br />
+                    <label for="sup_pers">Superacion Personal</label>
+                    <input type="checkbox" id="sup_pers" name="sup_pers"></input> <br />
+                </div> 
+                <div class="float">
+                    <h2>Habilidades</h2>
+                    <label for="empatia">Empatia</label>
+                    <input type="checkbox" id="empatia" name="empatia"></input> <br />
+                    <label for="pens_creativo">Pensamiento Creativo</label>
+                    <input type="checkbox" id="pens_creativo" name="pens_creativo"></input> <br />
+                    <label for="toma_desicion">Toma de decisiones</label>
+                    <input type="checkbox" id="toma_desicion" name="toma_desicion"></input> <br />
+                    <label for="autoconocimiento">Autoconocimiento</label>
+                    <input type="checkbox" id="autoconocimiento" name="autoconocimiento"></input> <br />
+                    <label for="pensa_critico">Pensamiento Critico</label>
+                    <input type="checkbox" id="pensa_critico" name="pensa_critico"></input> <br />
+                </div> 
+                <div class="float">
+                    <h2>Idiomas</h2>
+                    <label for="Ingles">Ingles</label>
+                    <input type="checkbox"  id="ingles" name="ingles"></input> <br />
+                    <label for="Español">Español</label>
+                    <input type="checkbox"  id="español" name="español"></input> <br />
+                    <label for="Frances">Frances</label>
+                    <input type="checkbox"  id="frances" name="frances"></input> <br />
+                </div>
+                 <div id="button">                    
+                    <button onclick="Funcion_cancelar()">Cancelar</button>
+                    <button onclick="salvarEstudiante()">Agregarr</button> 
+                    <button onclick="getRadioButtonSelectedValue()">ver pais</button>              
+                </div>
+            </div> 
+                <br />
+        </div>     
+    	<footer>
+        <p>UTN 2014, todos los derechos reservados &copy;</p>
+        </footer>	 
+    </body>
+</html>
+
