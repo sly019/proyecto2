@@ -3,7 +3,7 @@
 
 	<head>
 	    <meta charset="UTF-8">
-	    <title>Estudiantes</title>     
+	    <title>Carreras</title>     
 	    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
 	    <link rel="stylesheet" type="text/css" href="../style2.css">    
 	    <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -37,34 +37,33 @@
 				    </nav >
 				    <br><br><br>
 				    <div class="rowBarran">
-				    		<div class="estudiante_info">                               
+				    		 <div class="estudiante_info">                               
 				                <table border=”0″ cellpadding=”0″ cellspacing=”0″>
-					                <tr>
-					                <th>Estado</th>
-					                <th>Nombre </th>
-					                <th>Carrera </th> 
-					                <th>Seleccionar </th></tr>
-					                <tr>
-					                <th>Bachiller finalizado</th>
-					                <td>Elias Castro Acuña</td>
-					                <td>Tecnologias Informaticas </td>
-					                <td id="checkbox" ><input type="checkbox"/></td> </tr>
-					                <tr>
-					                <th>Diplomado en curso</th>
-					                <td>Jorge Peña Mora</td>
-					                <td>Tecnologias Informaticas </td> 
-					                <td id="checkbox" ><input type="checkbox"/></td> </tr>
-					                <tr>
-					                <th>Licenciatura finalizada</th>
-					                <td>Julia Mendez Chavarria</td>
-					                <td>Salud Ambiental</td> 
-					                <td id="checkbox" ><input type="checkbox"/></td> </tr>
-				                </table>                              
+				                <tr>
+				                <th>Carrera</th>
+				                <th>Codigo </th>
+				                <th>Director Carrera </th> 
+				                <th>Seleccionar </th></tr>
+				                <tr>
+				                <th>Diplomado Tecnologias Informaticas</th>
+				                <td>ISW-502</td>
+				                <td>Danilo Vargas Valenciano </td>
+				                <td id"checkbox" ><input type="checkbox"/></td> </tr>
+				                <tr>
+				                <th>Bachiller Tecnologias Informaticas</th>
+				                <td>ISW-103</td>
+				                <td>Danilo Vargas Valenciano  </td> 
+				                <td id="checkbox" ><input type="checkbox"/></td> </tr>
+				                </table>                                
 				            </div>
-				            <br/>				             
+				            <br/>	<br/>	<br/>	
+
+				            <select id="Estado" onfocus="llenarSelect()"> <option> carreras </option> </select>   
+
+				            <br/>	<br/>	<br/>				             
 				            <div class="botonera">
 				                <button onclick="Funcion_eliminar()">Eliminar</button>
-				                <button onclick="FuncionAgregarEstudiante()">Agregar</button>
+				                <button onclick="FuncionAgregarCarrera()">Agregar</button>
 				                <button onclick="Funcion_ver()">Ver</button>                                     
 				            </div>  
 					</div>   

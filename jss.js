@@ -2,7 +2,7 @@
 var usuarioActual;
 var nPacis;
 var posicion;
-
+var selectedItems;
 
 
 //valida el login de inicio
@@ -34,20 +34,29 @@ function asignarUsuario(){
       document.getElementById("nombreUsuario").value = usuarioActual;
 }
 
-
-//asigna nombre de usuario actual
-function Funcion_agregar(){
+//funcion para abrir formulario de estudiante
+function FuncionAgregarEstudiante(){
       setTimeout("location='formulario.html'")
 }
 
+//funcion para abrir formulario de carrera
+function FuncionAgregarCarrera(){
+      setTimeout("location='agregar.html'")
+}
+
+//funcion para volvernos a la pag anterior
+function FuncionVolver(){
+      window.history.back();
+}
 
 //se usa para almacenar un estudiante en un arreglo
 function salvarEstudiante() {
     // obtener datos del form
     var nombre = document.getElementById('nombre').value,
         apellido = document.getElementById('apellido').value,
-        cedula = document.getElementById('cedula').value
-        var nPais = document.getElementById("pais").options[document.getElementById("pais").options.selectedIndex].text; //extrae valor de select;
+        cedula = document.getElementById('cedula').value,
+        nPais = document.getElementById("pais").options[document.getElementById("pais").options.selectedIndex].text; //extrae valor de select;
+       
 
     // crear objeto estudiante
     var estudiante = { "nombre": nombre, "apellido": apellido, "cedula": cedula, "pais": nPais };
@@ -66,17 +75,75 @@ function salvarEstudiante() {
 }
 
 
+//se usa para almacenar un estudiante en un arreglo
+function salvarCarrera() {
+    // obtener datos del form
+    var nombre = document.getElementById('nombre').value,
+        creditos = document.getElementById('creditos').value,
+        directorCarrera = document.getElementById('directorCarrera').value; 
+       
+
+    // crear objeto estudiante
+    var carrera = { "nombre": nombre, "creditos": creditos, "directorCarrera": directorCarrera };
+    
+    // leer los estudiantes de localstorage
+    var ArregloCarreras = JSON.parse(localStorage.getItem('ArregloCarreras'));
+    if (ArregloCarreras === null) {
+        ArregloCarreras = [];
+    }
+
+    // agregar el estudiante
+    ArregloCarreras.push(carrera);
+
+    // volver guardar en localstoraage
+    localStorage.setItem('ArregloCarreras',JSON.stringify(ArregloCarreras));
+}
+  
+
+//se usa para llenar el select con datos del local storage
+function llenarSelect(){
+    var carrera = document.getElementById("Estado"); /* Para no tener que llamar a cada rato a getElementById */
+    var ArregloCarreras = JSON.parse(localStorage.getItem('ArregloCarreras'));
+      for(var i=0;i<ArregloCarreras.length;i++){ 
+        carrera.options[i] = new Option(ArregloCarreras[i].nombre);
+       }
+  }
+
+
+
+function checkbox(){
+$(document).ready(function(){
+    var selected = '';
+    selectedItems = []; 
+    $(" input:checkbox:checked").each(function(){
+     if (this.checked) {
+                selected += $(this).val() ;
+                selectedItems += [$(this).val()]; 
+            }
+    });    
+    alert('Has seleccionado: '+selected);  
+    localStorage.setItem('selectedItems',JSON.stringify(selectedItems));
+});
+}
+
+
+
 
 
 //se usa para extraer elementos de un select
 function extraeSelectPais(){
   var posicion=document.getElementById("pais").options.selectedIndex; //posicion
   nPais = document.getElementById("pais").options[posicion].text; //valor
+  alert(nPais);
 }
 
-function getRadioButtonSelectedValue()
-{
-    for(i=0;i<5.length;i++)
-        if(document.form_1.genero[i].checked) 
-          alert(document.form_1.genero[i]);
+
+function checkboxxxx(){
+$(document).ready(function(){
+    selectedItems = [];    
+    $("input:checkbox:checked").each(function(){
+      selectedItems.push($(this).value);
+    });    
+    localStorage.setItem('selectedItems',JSON.stringify(selectedItems));    
+});
 }
