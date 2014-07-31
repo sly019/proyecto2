@@ -5,49 +5,8 @@ var posicion;
 var selectedItems;
 
 
-//valida el login de inicio
-function validarLogin(){
-  if (typeof(localStorage) == 'undefined' ) {
-    alert('Tu navegador no soporta HTML5');
-  } else {
-    try {
-        if ((document.forms[0].nombre.value == "admin") && (document.forms[0].password.value == "12345") || 
-            (document.forms[0].nombre.value == "invitado") && (document.forms[0].password.value == "invitado1")) {
-            localStorage.setItem("nombre",document.forms[0].nombre.value); // Guardamos el valor
-            localStorage.setItem("password",document.forms[0].password.value); // Guardamos el valor
-            setTimeout("location='Inicio/inicio.html'")
-        }
-        else
-            alert("Error de usuario");     
-    }catch(e){
-      if (e == QUOTA_EXCEEDED_ERR) {
-        alert('No podemos almacenar mas contenido');
-      }
-    }
-  }
-}
 
 
-//asigna nombre de usuario actual
-function asignarUsuario(){
-      usuarioActual = localStorage.getItem('nombre');
-      document.getElementById("nombreUsuario").value = usuarioActual;
-}
-
-//funcion para abrir formulario de estudiante
-function FuncionAgregarEstudiante(){
-      setTimeout("location='formulario.html'")
-}
-
-//funcion para abrir formulario de carrera
-function FuncionAgregarCarrera(){
-      setTimeout("location='agregar.html'")
-}
-
-//funcion para volvernos a la pag anterior
-function FuncionVolver(){
-      window.history.back();
-}
 
 //se usa para almacenar un estudiante en un arreglo
 function salvarEstudiante() {
@@ -109,7 +68,64 @@ function llenarSelect(){
        }
   }
 
-//funcion para setear datos a la tabla dinamicamente
+
+
+function ver() {
+    alert("feo");
+    }
+
+
+function crearTabla1() {
+    // Declare variables and create the header, footer, and caption.
+  var oTHead = oTable.createTHead();
+  var oTFoot = oTable.createTFoot();
+  var oCaption = oTable.createCaption();
+  var oRow, oCell;
+  var i, j;
+
+  // Declare stock data that would normally be read in from a stock Web site.
+  var heading = new Array();
+
+  heading[0] = "Nombre carrera";
+  heading[1] = "Cantidad de creditos";
+  heading[2] = "Director de carrera";
+  //heading[3] = "Close";
+
+    /* Para no tener que llamar a cada rato a getElementById */
+    var stock  =  new Array(JSON.parse(localStorage.getItem('ArregloCarreras')));
+    
+  // Insert a row into the header.
+  oRow = oTHead.insertRow(-1);
+  oTHead.setAttribute("bgColor","lightskyblue");
+
+  // Insert cells into the header row.
+  for (i=0; i<heading.length; i++)
+  {
+    oCell = oRow.insertCell(-1);
+    oCell.align = "center";
+    oCell.style.fontWeight = "bold";
+    oCell.innerHTML = heading[i];
+  }
+  z=0;
+  // Insert rows and cells into bodies.
+  for (i=0; i<stock.length; i++)
+  {
+
+    var oBody = (i<3) ? oTBody0 : oTBody1;
+    oRow = oBody.insertRow(0);
+    for (j=0; j<stock[i].length; j++)
+    {
+      oCell = oRow.insertCell(-1);
+      oCell.innerHTML = stock[i][j].nombre; 
+    }
+  }
+
+  // Set the background color of the bodies.
+  oTBody0.setAttribute("bgColor","lemonchiffon");
+  oTBody1.setAttribute("bgColor","goldenrod");
+}
+
+
 function crearTabla() {
   //Se declaran variables locales
   var oTHead = oTable.createTHead();
@@ -141,7 +157,8 @@ function crearTabla() {
     oCell = oRow.insertCell(-1);
     oCell.align = "center";
     oCell.style.fontWeight = "bold";
-    oCell.innerHTML = heading[i]; 
+    oCell.innerHTML = heading[i];
+ 
   }
 
   // Insert rows and cells into bodies.
@@ -156,48 +173,4 @@ function crearTabla() {
    // Establece colores de los cuerpos de la tabla
   oTBody0.setAttribute("bgColor","#FF33FF");
   oTBody1.setAttribute("bgColor","Lime");
-}
-
-
-
-
-
-
-
-
-function checkbox(){
-$(document).ready(function(){
-    var selected = '';
-    selectedItems = []; 
-    $(" input:checkbox:checked").each(function(){
-     if (this.checked) {
-                selected += $(this).val() ;
-                selectedItems += [$(this).val()]; 
-            }
-    });    
-    alert('Has seleccionado: '+selected);  
-    localStorage.setItem('selectedItems',JSON.stringify(selectedItems));
-});
-}
-
-
-
-
-
-//se usa para extraer elementos de un select
-function extraeSelectPais(){
-  var posicion=document.getElementById("pais").options.selectedIndex; //posicion
-  nPais = document.getElementById("pais").options[posicion].text; //valor
-  alert(nPais);
-}
-
-
-function checkboxxxx(){
-$(document).ready(function(){
-    selectedItems = [];    
-    $("input:checkbox:checked").each(function(){
-      selectedItems.push($(this).value);
-    });    
-    localStorage.setItem('selectedItems',JSON.stringify(selectedItems));    
-});
 }
