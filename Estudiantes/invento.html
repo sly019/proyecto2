@@ -6,10 +6,10 @@
 	    <title>ccc</title>     
 	    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
 	    <link rel="stylesheet" type="text/css" href="../style2.css">    
-	    <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	    <script type="text/javascript" src="../jssP.js"></script>
+	    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	    <script type="text/javascript" src="../jss.js"></script>
 	</head>
-		<body onload="crearTabla();">
+		<body >
 			<div class="wrapper">
 				<div class="container">
 					<div>
@@ -38,17 +38,18 @@
 				    <div class="rowBarran">
 				    		<div class="estudiante_info">                               
 				            </div> <br><br><br>
-				            <TABLE ID="oTable" BORDER="2" BGCOLOR="lightslategray">
+				            <div id="table_wrapper"></div>
 
-							<TBODY ID="oTBody0"></TBODY>
-							<TBODY ID="oTBody1"> </TBODY  >
+				             <TABLE ID="oTable" BORDER="2" BGCOLOR="lightslategray">
+								<TBODY ID="oTBody0"></TBODY>
 
-							</TABLE>
+								</TABLE>   
+
 				            <br/>				             
 				            <div class="botonera">
 				                <button onclick="Funcion_eliminar()">Eliminar</button>
 				                <button onclick="ver()">ver</button>
-				                <button onclick="crearTabla()">Ver tabla</button>                                     
+				                <button onclick="crearTablax()">Ver tabla</button>                                     
 				            </div>  
 					</div>   
 				</div> 
@@ -56,6 +57,10 @@
 			<footer>
        			<p>UTN 2014, todos los derechos reservados &copy;</p>
        		</footer>	
+
+       	<script type="text/javascript">
+        crearTablax();
+    	</script>
 		</body>
 </html>
 

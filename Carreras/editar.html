@@ -2,36 +2,43 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>SIGE</title>
-        <link rel="stylesheet" type="text/css" href="../style2f.css">  
-        <script type="text/javascript" src="../jss.js"></script> 
+        <title>Edicion</title>
+        <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../stylce2.css">    
+        <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script type="text/javascript" src="../jss.js"></script>
     </head>
     <body>	
         <div>
             <h1>Agregar Carreras</h1>                      
             <img id="img_formulario"; src="http://3.bp.blogspot.com/-ZZloaUFEHYc/TvsJGJzqd8I/AAAAAAAAAM4/XAnsNB9kU84/s320/check-and-cross-icons.jpg"> </img>
+            <br />  <br/>
         </div>   
             <form id="info" method="get" name="formCarrera">
                 <label for="nombre">Nombre carrera</label>
                 <input type="text" size="25" maxlength="25" id="nombre" name="nombre"></input>
                 <br/><br/>
                 <label for="codigoCarrera">Codigo de carrera</label>
-                <input type="text" size="25" maxlength="25" id="codigoCarrera" name="codigoCarrera" ></input>
+                <input type="text" size="23" maxlength="25" id="codigoCarrera" name="codigoCarrera" ></input>
                 <br/><br/>
                 <label for="creditos">Cantidad de creditos </label>
-                <input type="text" size="16" maxlength="15" id="creditos" name="creditos"></input>
-                <br />  <br/>
+                <input type="text" size="20" maxlength="15" id="creditos" name="creditos"></input>
+                <br /><br/>
             <br />           
             </form>
             <br />
             <div class="botonera_peq">
-                    <button onclick="FuncionVolver()">Cerrar</button>
-                    <button onfocus ="salvarCarrera()">Agregar</button>                                  
+                    <button onclick="cerrarEdicionCarrera()">Cancelar</button>
+                    <button onfocus ="salvarCarreraEditada()">Guardar</button>                                   
             </div> 
         </div>     
     	<footer>
         <p>UTN 2014, todos los derechos reservados &copy;</p>
-        </footer>	 
+        </footer>	
+
+        <script type="text/javascript">
+              FuncionGuardarEdicionCarrera();
+        </script> 
     </body>
 </html>
 

@@ -10,9 +10,8 @@
 	    <script type="text/javascript" src="../jss.js"></script>
 	    <script > window.onload = asignarUsuario </script>
 	    
-
 	</head>
-		<body onload="crearTabla();">
+		<body >
 			<div class="wrapper">
 				<div class="container">
 					<div>
@@ -42,7 +41,6 @@
 				    		 <div class="estudiante_info">                               
 				                <TABLE ID="oTable" BORDER="2" BGCOLOR="lightslategray">
 								<TBODY ID="oTBody0"></TBODY>
-								<TBODY ID="oTBody1"> </TBODY>
 								</TABLE>                             
 				            </div>
 				            <br/>	<br/>	<br/>	
@@ -51,9 +49,9 @@
 
 				            <br/>	<br/>	<br/>				             
 				            <div class="botonera">
-				                <button onclick="Funcion_eliminar()">Eliminar</button>
+				                <button onfocus ="FuncionEliminarCarreras()">Eliminar</button>
 				                <button onclick="FuncionAgregarCarrera()">Agregar</button>
-				                <button onclick="Funcion_ver()">Ver</button>                                     
+				                <button onclick="FuncionEditarCarrera()">Editar</button>                                     
 				            </div>  
 					</div>   
 				</div> 
@@ -61,6 +59,9 @@
 			<footer>
        			<p>UTN 2014, todos los derechos reservados &copy;</p>
        		</footer>	
+       		<script type="text/javascript">
+	      	  crearTablax();
+	    	</script>
 		</body>
 </html>
 

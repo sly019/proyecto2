@@ -3,6 +3,9 @@ var usuarioActual;
 var nPacis;
 var posicion;
 var selectedItems;
+var stock;
+var check;
+var temp;
 
 
 //valida el login de inicio
@@ -27,7 +30,6 @@ function validarLogin(){
   }
 }
 
-
 //asigna nombre de usuario actual
 function asignarUsuario(){
       usuarioActual = localStorage.getItem('nombre');
@@ -39,13 +41,31 @@ function FuncionAgregarEstudiante(){
       setTimeout("location='formulario.html'")
 }
 
-//funcion para abrir formulario de carrera
+//funcion para abrir formulario de nueva carrera
 function FuncionAgregarCarrera(){
       setTimeout("location='agregar.html'")
 }
 
+//funcion para abrir formulario de editar carrera
+function FuncionEditarCarrera(){
+      estudianteEditar=[];      
+      temp = JSON.parse(localStorage.getItem('ArregloCarreras'))[($("input:checked").attr("id"))];
+      localStorage.setItem('estudianteEditar',JSON.stringify(temp));
+      ArregloCarreras = JSON.parse(localStorage.getItem('ArregloCarreras'))  
+      delete ArregloCarreras[$("input:checked").attr("id")];
+      ArregloCarreras = ArregloCarreras.filter(Boolean);
+      localStorage.setItem('ArregloCarreras',JSON.stringify(ArregloCarreras));
+      setTimeout("location='editar.html'")
+}
+
 //funcion para volvernos a la pag anterior
 function FuncionVolver(){
+      window.history.back();
+}
+
+function cerrarEdicionCarrera(){
+      salvarCarrera();
+      localStorage.removeItem("estudianteEditar");
       window.history.back();
 }
 
@@ -74,17 +94,15 @@ function salvarEstudiante() {
     localStorage.setItem('ArregloEstudiantes',JSON.stringify(ArregloEstudiantes));
 }
 
-
 //se usa para almacenar un estudiante en un arreglo
 function salvarCarrera() {
     // obtener datos del form
     var nombre = document.getElementById('nombre').value,
         creditos = document.getElementById('creditos').value,
-        directorCarrera = document.getElementById('directorCarrera').value; 
+        codigoCarrera = document.getElementById('codigoCarrera').value; 
        
-
-    // crear objeto estudiante
-    var carrera = { "nombre": nombre, "creditos": creditos, "directorCarrera": directorCarrera };
+    // crear objeto Carrera
+    var carrera = { "nombre": nombre, "creditos": creditos, "codigoCarrera": codigoCarrera };
     
     // leer los estudiantes de localstorage
     var ArregloCarreras = JSON.parse(localStorage.getItem('ArregloCarreras'));
@@ -92,13 +110,14 @@ function salvarCarrera() {
         ArregloCarreras = [];
     }
 
-    // agregar el estudiante
+    // agregar el Carrera
     ArregloCarreras.push(carrera);
 
     // volver guardar en localstoraage
     localStorage.setItem('ArregloCarreras',JSON.stringify(ArregloCarreras));
+    localStorage.removeItem("estudianteEditar");
+    location.reload(true);
 }
-  
 
 //se usa para llenar el select con datos del local storage
 function llenarSelect(){
@@ -110,7 +129,7 @@ function llenarSelect(){
   }
 
 //funcion para setear datos a la tabla dinamicamente
-function crearTabla() {
+function crearTablax() {
   //Se declaran variables locales
   var oTHead = oTable.createTHead();
   var oRow, oCell;
@@ -119,17 +138,23 @@ function crearTabla() {
   //Se declaran los arreglos 
   var heading = new Array();
   var stock  =  new Array();
+  var number = -1;
+ // check = "<input type='checkbox' id='number'>"
+  
 
   //Se asignan valor al arreglo 
   heading[0] = "Nombre carrera";
   heading[1] = "Cantidad de creditos";
-  heading[2] = "Director de carrera";
-  heading[3] = "Chke"
+  heading[2] = "Codigo de carrera";
+  heading[3] = "Seleccionar"
   
   //Se recorre el arreglo de carreras y se traslada a un array nuevo     
   for (var i = 0 ; i < JSON.parse(localStorage.getItem('ArregloCarreras')).length ; i++){
         stock[i] = JSON.parse(localStorage.getItem('ArregloCarreras'))[i]
-        stock[i] = new Array (stock[i].nombre,stock[i].creditos,stock[i].directorCarrera)
+        number++;
+        check = "<input type='radio' name='opciones' id= '"+number+"'>"
+        stock[i] = new Array (stock[i].nombre,stock[i].creditos,stock[i].codigoCarrera, check )
+        
   };
 
   // Se define el ingreso de filas a la cabecera
@@ -145,18 +170,88 @@ function crearTabla() {
   }
 
   // Insert rows and cells into bodies.
-  for (i=0; i<stock.length; i++){
-    var oBody = (i<2) ? oTBody0 : oTBody1;
-    oRow = oBody.insertRow(-1);  //acomoda arreglo de atras hacia adelante
+  for (i=0; i<stock.length; i++){ 
+    oRow = oTBody0.insertRow(-1);  //acomoda arreglo de atras hacia adelante
     for (j=0; j<stock[i].length; j++){
       oCell = oRow.insertCell(-1);
-      oCell.innerHTML = stock[i][j]; 
+      oCell.innerHTML = stock[i][j];      
     }
   }
    // Establece colores de los cuerpos de la tabla
   oTBody0.setAttribute("bgColor","#FF33FF");
-  oTBody1.setAttribute("bgColor","Lime");
 }
+
+//Elimina Carreras de localStorage-Carrera
+function FuncionEliminarCarreras(){
+  //convertimos el objeto 
+  ArregloCarreras = JSON.parse(localStorage.getItem('ArregloCarreras'))
+  
+  alert("El estudiante " + ArregloCarreras[($("input:checked").attr("id"))].nombre +" fue eliminado exitosante");
+  
+  //eliminamos el objeto deseado 
+  delete ArregloCarreras[$("input:checked").attr("id")];
+  
+  //filtramos Undefinade y se eliminan
+  ArregloCarreras = ArregloCarreras.filter(Boolean);
+  
+  //guardamos la cadena nueva
+  localStorage.setItem('ArregloCarreras',JSON.stringify(ArregloCarreras));
+  
+  location.reload(true);
+}
+
+//carga datos de Carrera seleccionada de localStorage-Carrera
+function FuncionGuardarEdicionCarrera(){
+  //convertimos el objeto 
+  estudianteEditar = JSON.parse(localStorage.getItem('estudianteEditar'))
+  document.getElementById("nombre").value = estudianteEditar.nombre;
+  document.getElementById("creditos").value = estudianteEditar.creditos;
+  document.getElementById("codigoCarrera").value = estudianteEditar.codigoCarrera;
+}
+
+function salvarCarreraEditada() {
+    // obtener datos del form
+    var nombre = document.getElementById('nombre').value,
+        creditos = document.getElementById('creditos').value,
+        codigoCarrera = document.getElementById('codigoCarrera').value; 
+       
+    // crear objeto Carrera
+    var carrera = { "nombre": nombre, "creditos": creditos, "codigoCarrera": codigoCarrera };
+    
+    // leer los estudiantes de localstorage
+    var ArregloCarreras = JSON.parse(localStorage.getItem('ArregloCarreras'));
+    if (ArregloCarreras === null) {
+        ArregloCarreras = [];
+    }
+
+    // agregar el Carrera
+    ArregloCarreras.push(carrera);
+
+    // volver guardar en localstoraage
+    localStorage.setItem('ArregloCarreras',JSON.stringify(ArregloCarreras));
+    localStorage.removeItem("estudianteEditar");
+    window.history.back();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -172,7 +267,7 @@ $(document).ready(function(){
     $(" input:checkbox:checked").each(function(){
      if (this.checked) {
                 selected += $(this).val() ;
-                selectedItems += [$(this).val()]; 
+                selectedItems.push([$(this).val()]); 
             }
     });    
     alert('Has seleccionado: '+selected);  
