@@ -4,38 +4,46 @@
         <meta charset="UTF-8">
         <title>Edicion</title>
         <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="../stylce2.css">    
+        <link rel="stylesheet" type="text/css" href="../style2.css">    
         <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script type="text/javascript" src="../jss.js"></script>
     </head>
     <body>	
-        <div>
-            <h1>Agregar Carreras</h1>                      
-            <img id="img_formulario"; src="http://3.bp.blogspot.com/-ZZloaUFEHYc/TvsJGJzqd8I/AAAAAAAAAM4/XAnsNB9kU84/s320/check-and-cross-icons.jpg"> </img>
-            <br />  <br/>
-        </div>   
-            <form id="info" method="get" name="formCarrera">
-                <label for="nombre">Nombre carrera</label>
-                <input type="text" size="25" maxlength="25" id="nombre" name="nombre"></input>
-                <br/><br/>
-                <label for="codigoCarrera">Codigo de carrera</label>
-                <input type="text" size="23" maxlength="25" id="codigoCarrera" name="codigoCarrera" ></input>
-                <br/><br/>
-                <label for="creditos">Cantidad de creditos </label>
-                <input type="text" size="20" maxlength="15" id="creditos" name="creditos"></input>
-                <br /><br/>
-            <br />           
-            </form>
-            <br />
-            <div class="botonera_peq">
-                    <button onclick="cerrarEdicionCarrera()">Cancelar</button>
-                    <button onfocus ="salvarCarreraEditada()">Guardar</button>                                   
-            </div> 
+        <div class="wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6"> 
+                        <div id="info">
+                            <h1>Editar Carreras</h1>                      
+                            <img id="info"; src="http://3.bp.blogspot.com/-ZZloaUFEHYc/TvsJGJzqd8I/AAAAAAAAAM4/XAnsNB9kU84/s320/check-and-cross-icons.jpg"> </img>
+                        </div> 
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">                 
+                            <form id="info" method="get" name="formCarrera">
+                                <label for="nombre">Nombre carrera</label>
+                                <input type="text" size="25" maxlength="25" id="nombre" name="nombre"></input><br/>
+                                <label for="codigoCarrera">Codigo de carrera</label>
+                                <input type="text" size="25" maxlength="25" id="codigoCarrera" name="codigoCarrera" ></input> <br/>
+                                <label for="creditos">Cantidad de creditos </label>
+                                <input type="text" size="25" maxlength="25" id="creditos" name="creditos"></input><br/>
+                                <div class="botonera">
+                                    <button onfocus="salvarCarreraEditada()">Cancelar</button>
+                                    <button onfocus ="salvarCarreraEditada()">Guardar</button>                       
+                                </div> 
+                            </form>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>                
         </div>     
     	<footer>
         <p>UTN 2014, todos los derechos reservados &copy;</p>
         </footer>	
-
         <script type="text/javascript">
               FuncionGuardarEdicionCarrera();
         </script> 

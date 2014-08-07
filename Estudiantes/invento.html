@@ -7,60 +7,78 @@
 	    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
 	    <link rel="stylesheet" type="text/css" href="../style2.css">    
 	    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-	    <script type="text/javascript" src="../jss.js"></script>
+	    <script type="text/javascript" src="../jssP.js"></script>
 	</head>
 		<body >
-			<div class="wrapper">
+			
 				<div class="container">
-					<div>
-						<br>
-					</div>	
-					<div class="container">
-				      	<div class="row">
-						  <div class="col-md-10 col-lg-10"> </div>
-						  <div class="col-md-2 col-lg-2" >
-						  	<p> Usuario: <input type="text" readonly="readonly" value="" id="nombreUsuario"></input> </p> 
-						  </div>
-						</div>
-				    </div>
-				    <br><br>	
-				    <nav class="navbar navbar-default navbar-static-top" role="navigation">
-				     	<div class="rowBarra">
-						  <div class="col-md-2"> </div>
-						  <div class="col-md-2"> <a class="label label-info" href="../Inicio/inicio.html">INICIO</a> 	</div>
-						  <div class="col-md-2"> <a class="label label-info" href="../Estudiantes/estudiante.html">ESTUDIANTES</a> 	</div>
-						  <div class="col-md-2"> <a class="label label-info" href="../Carreras/carrera.html">CARRERAS</a> 	</div>
-						  <div class="col-md-2"> <a class="label label-info" href="../Usuarios/usuario.html">USUARIOS</a>  	</div>
-						  <div class="col-md-2"> </div>
-						</div>
-				    </nav >
-				    <br><br><br>
-				    <div class="rowBarran">
-				    		<div class="estudiante_info">                               
-				            </div> <br><br><br>
-				            <div id="table_wrapper"></div>
+									<input type="file" name="pic" id="pic" accept="image/gif, image/jpeg" />
+									<a href="#delete_1" data-role="button" onClick="save()">guardar</a>
 
-				             <TABLE ID="oTable" BORDER="2" BGCOLOR="lightslategray">
-								<TBODY ID="oTBody0"></TBODY>
+									<script>
+									    var i = 0; 
+									    function save(){                
+									        var input = document.getElementById("pic").value; 
+									        var name = "img" + i; 
+									        localStorage.setItem(name, input);      
+									        $("#QR").src = window.localStorage[name]; 
+									        i++; 
+									    }
+									</script> 
+					</div>  
 
-								</TABLE>   
 
-				            <br/>				             
-				            <div class="botonera">
-				                <button onclick="Funcion_eliminar()">Eliminar</button>
-				                <button onclick="ver()">ver</button>
-				                <button onclick="crearTablax()">Ver tabla</button>                                     
-				            </div>  
-					</div>   
-				</div> 
+<style>
+  .thumb {
+    height: 75px;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+  }
+</style>
+
+<input type="file" id="files" name="files[]" multiple />
+//<output id="list"></output>
+
+<script>
+  function handleFileSelect(evt) {
+    var files = evt.target.files; // FileList object
+
+    // Loop through the FileList and render image files as thumbnails.
+    for (var i = 0, f; f = files[i]; i++) {
+
+      // Only process image files.
+      if (!f.type.match('image.*')) {
+        continue;
+      }
+
+      var reader = new FileReader();
+
+      // Closure to capture the file information.
+      reader.onload = (function(theFile) {
+        return function(e) {
+          // Render thumbnail.
+          otro = 'src='+"', "+e.target.result+"";
+          var span = document.createElement('span');
+          span.innerHTML = ['<img class="thumb" src="', e.target.result,
+                            '" title="', escape(theFile.name), '"/>'].join('');
+          document.getElementById('list').insertBefore(span, null);
+        };
+      })(f);
+
+      // Read in the image file as a data URL.
+      reader.readAsDataURL(f);
+    }
+  }
+
+  document.getElementById('files').addEventListener('change', handleFileSelect, false);
+</script>
+
+
+
+
+				
 			</div>
-			<footer>
-       			<p>UTN 2014, todos los derechos reservados &copy;</p>
-       		</footer>	
-
-       	<script type="text/javascript">
-        crearTablax();
-    	</script>
+			
 		</body>
 </html>
 

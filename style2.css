@@ -29,6 +29,29 @@ div.rowBarra{
     margin-top: 13px;
 }
 
+/*propiedades de la tabla dinamica*/
+td{
+    padding: 7px;
+}
+
+/*propiedades de la tabla dinamica*/
+button.buttonTable{
+    margin: 7px;
+}
+
+
+/*propiedades de la tabla dinamica*/
+div.tabla_info{
+    margin-top: 5%;
+}
+
+/*propiedades de la botonera*/
+div.botonera{
+    margin-top: 5%;
+    width:98%; 
+}
+
+
 /*aumenta tamaño de letra de pag inicio*/
 .label {  
   font-size: 105%; 
@@ -61,7 +84,33 @@ footer{
 form#info{
     width:auto;
     height:auto;
-    padding: 50px 150px; 
+    padding: 10px 150px; 
     float: left;
     margin: 0px;
 }
+
+div#info{
+    width:auto;
+    height:auto;
+    padding: 20px 80px; 
+    float: left;
+    margin: 0px;
+}
+
+
+ .foto {
+    height: 75px;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+  }
+
+  img#imgEstudiante {
+    height: 100px;
+    border: 2px solid #000;
+    margin: 10px 0px 30px 100px;
+  }
+
+   img#img_formulario {
+    height: 100px;
+    margin: 10px 0px 30px 100px;
+  }
