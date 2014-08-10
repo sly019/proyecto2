@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html>
-
 	<head>
 	    <meta charset="UTF-8">
 	    <title>Carreras</title>     
 	    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
 	    <link rel="stylesheet" type="text/css" href="../style2.css">    
 	    <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	    <script type="text/javascript" src="../jss.js"></script>
+	    <script type="text/javascript" src="jssCarrera.js"></script>
 	    <script > window.onload = asignarUsuario </script>
-	    
 	</head>
 		<body >
 			<div class="wrapper">
@@ -46,9 +44,10 @@
 									</TABLE>                             
 				            	</div>
 					            <div class="botonera">
-					                <button class="buttonTable" onfocus ="FuncionEliminarCarreras()">Eliminar</button>
-					                <button class="buttonTable" onclick="FuncionAgregarCarrera()">Agregar</button>
-					                <button class="buttonTable" onclick="FuncionEditarCarrera()">Editar</button>                          
+					                <button class="btn btn-danger" onfocus ="FuncionEliminarCarreras()">Eliminar</button>
+					                <button class="btn btn-primary" onclick="FuncionAgregarCarrera()">Agregar</button>
+					                <button class="btn btn-primary" onclick="FuncionEditarCarrera()">Editar</button>
+					                <button class="btn btn-primary" onclick="FuncionVerCarrera()">Ver</button>                             
 					            </div> 
 				          </div>
 						  <div class="col-md-3"></div>
@@ -59,7 +58,7 @@
        			<p>UTN 2014, todos los derechos reservados &copy;</p>
        		</footer>	
        		<script type="text/javascript">
-	      	  crearTablax();
+	      	  crearTablaCarrera();
 	    	</script>
 		</body>
 </html>

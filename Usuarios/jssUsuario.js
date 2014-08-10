@@ -59,8 +59,6 @@ function crearTablaUsuario() {
   var heading = new Array();
   var stock  =  new Array();
   var number = -1;
- 
-  
 
   //Se asignan valor al arreglo 
   heading[0] = "Nombre";
@@ -79,13 +77,14 @@ function crearTablaUsuario() {
   };
   // Se define el ingreso de filas a la cabecera
   oRow = oTHead.insertRow(-1);
-  oTHead.setAttribute("bgColor","lightskyblue");
+  oTHead.setAttribute("bgColor","#000066");
 
   // Insert cells into the header row.
   for (i=0; i<heading.length; i++){
     oCell = oRow.insertCell(-1);
     oCell.align = "center";
     oCell.style.fontWeight = "bold";
+    oCell.style.color = "white";
     oCell.innerHTML = heading[i]; 
   }
 
@@ -98,7 +97,8 @@ function crearTablaUsuario() {
     }
   }
    // Establece colores de los cuerpos de la tabla
-  oTBody0.setAttribute("bgColor","#FF33FF");
+  oTBody0.setAttribute("bgColor","#999999");
+  oTBody0.style.fontWeight = "bold";
 }
     
 //Elimina usuarios de localStorage-usuario
@@ -131,6 +131,19 @@ function FuncionEditarUsuario(){
       localStorage.setItem('UsuarioEditar',JSON.stringify(temp));
       localStorage.setItem('pos',JSON.stringify(($("input:checked").attr("id"))));
       setTimeout("location='editar.html'");
+  }else
+    alert("Seleccione un usuario");   
+}
+
+//funcion para abrir formulario de editar usuario                             
+function FuncionVerUsuario(){
+  if ((($("input:checked").attr("id")) != undefined)) {
+      UsuarioEditar=[];
+      pos=[];      
+      temp = JSON.parse(localStorage.getItem('ArregloUsuarios'))[($("input:checked").attr("id"))];
+      localStorage.setItem('UsuarioEditar',JSON.stringify(temp));
+      localStorage.setItem('pos',JSON.stringify(($("input:checked").attr("id"))));
+      setTimeout("location='ver.html'");
   }else
     alert("Seleccione un usuario");   
 }

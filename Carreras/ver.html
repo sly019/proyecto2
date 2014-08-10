@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Edicion</title>
+        <title>Ver Carrera</title>
         <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="../style2.css">    
         <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -15,7 +15,7 @@
                     <div class="col-md-3"></div>
                     <div class="col-md-6"> 
                         <div id="info">
-                            <h1>Editar Carreras</h1>                      
+                            <h1>Ver Carreras</h1>                      
                             <img id="info"; src="http://3.bp.blogspot.com/-ZZloaUFEHYc/TvsJGJzqd8I/AAAAAAAAAM4/XAnsNB9kU84/s320/check-and-cross-icons.jpg"> </img>
                         </div> 
                     </div>
@@ -26,14 +26,13 @@
                     <div class="col-md-6">                 
                             <form id="info" method="get" name="formCarrera">
                                 <label for="nombre">Nombre carrera</label>
-                                <input type="text" size="25" maxlength="25" id="nombre" name="nombre"></input><br/>
+                                <input type="text" size="25" maxlength="25" readonly="readonly" id="nombre" name="nombre"></input><br/>
                                 <label for="codigoCarrera">Codigo de carrera</label>
-                                <input type="text" size="25" maxlength="25" id="codigoCarrera" name="codigoCarrera" ></input> <br/>
+                                <input type="text" size="25" maxlength="25" readonly="readonly" id="codigoCarrera" name="codigoCarrera" ></input> <br/>
                                 <label for="creditos">Cantidad de creditos </label>
-                                <input type="text" size="25" maxlength="25" id="creditos" name="creditos"></input><br/><br/>
+                                <input type="text" size="25" maxlength="25" readonly="readonly" id="creditos" name="creditos"></input><br/><br/>
                                 <div class="botonera">
-                                    <button onfocus="salvarCarreraEditada()">Cancelar</button>
-                                    <button onfocus ="salvarCarreraEditada()">Guardar</button>                       
+                                    <button onfocus="salvarCarreraEditada()">Cerrar</button>                     
                                 </div> 
                             </form>
                     </div>

@@ -39,18 +39,27 @@ button.buttonTable{
     margin: 7px;
 }
 
-
-/*propiedades de la tabla dinamica*/
-div.tabla_info{
-    margin-top: 5%;
-}
-
 /*propiedades de la botonera*/
 div.botonera{
-    margin-top: 5%;
+    margin: center;
     width:98%; 
+
 }
 
+/*propiedades de la tabla*/
+table#oTable{
+    margin: 0 auto;
+    text-align: center;
+}
+
+/*propiedades de los botones dentro de la botonera*/
+.btn{
+    padding: 1%;
+    width:15%; 
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 25px;
+}
 
 /*aumenta tamaño de letra de pag inicio*/
 .label {  

@@ -11,12 +11,11 @@
     <body>	
         <div class="wrapper">
              <div class="container">
-                
                 <div class="row">
                     <div class="col-md-3"></div>
                     <div class="col-md-5"> 
                         <div id="info">
-                            <div><h1>Nuevo estudiante</h1></div>                    
+                            <div><h1>Ver estudiante</h1></div>                    
                         </div> 
                     </div>
                     <div class="col-md-4"></div>
@@ -27,26 +26,21 @@
                         <form id="info" name="myform">
                             <img id="estudiante" src=""> </img>
                             <label for="nombre">Nombre</label>
-                            <input type="text" size="25" maxlength="25" id="nombre" name="nombre"></input>
+                            <input type="text" size="25" maxlength="25" readonly="readonly" id="nombre" name="nombre"></input>
                             <br/><br/>    
                             <div id="imgEstudiante"></div>                 
-                            <input type="file" name="myfile" onChange="extract(document.myform.myfile.value)"></input> 
-                            <br/>
                             <label for="cedula">Cedula</label>
-                            <input type="text" size="25" maxlength="25" id="cedula" name="cedula"></input>
+                            <input type="text" size="25" maxlength="25" readonly="readonly" id="cedula" name="cedula"></input>
                             <br/><br/>                           
                             <label for="Carrera">Carrera</label>
-                            <select id="Carrera" name="Carrera">
-                                <option value="_">Seleccione una Opcion</option>                   
+                            <select id="Carrera" disabdled="disabled" name="Carrera">                   
                             </select>
                             <br/> <br/>               
                             <label for="nivIngles">Nivel de ingles</label>
-                            <input type="text" size="25" maxlength="25" id="nivIngles" name="nivIngles"></input>
+                            <input type="text" size="25" readonly="readonly" maxlength="25" id="nivIngles" name="nivIngles"></input>
                             <br/><br/> <br/>
-                            <div id="button">                    
-
-                                <button onclick= "FuncionAbrirEstudiante()">Cerrar</button>
-                                <button onclick="salvarEstudiante()">Agregar</button> 
+                            <div class="botonera">                    
+                                <button onfocus="salvarEstudianteEditado()">Cerrar</button> 
                             </div>      
                         </form>
                     </div>
@@ -55,7 +49,7 @@
             </div>  
         </div>    
         <script type="text/javascript">
-                funcionesEstudiante();
+                FuncionCargaDatosEstudiante();
             </script>                       
     	<footer>
              <p>UTN 2014, todos los derechos reservados &copy;</p>
