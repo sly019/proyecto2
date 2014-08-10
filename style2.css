@@ -89,10 +89,25 @@ form#info{
     margin: 0px;
 }
 
+form#usser{
+    width:auto;
+    height:auto;
+   padding: 10px 80px; 
+    margin: 20px;
+}
+
+div#usser{
+    width:auto;
+    height:auto;
+    padding: 10px 80px; 
+    float: left;
+    margin: 0px;
+}
+
 div#info{
     width:auto;
     height:auto;
-    padding: 20px 80px; 
+    padding: 70px 80px; 
     float: left;
     margin: 0px;
 }

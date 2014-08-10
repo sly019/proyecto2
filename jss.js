@@ -11,31 +11,9 @@ var imagen;
 
 //carga controles iniciales de Forulario de estudiante
 function funcionesEstudiante(){
-  llenarSelectCarreras();
-             
+  llenarSelectCarreras();         
 }
 
-//valida el login de inicio
-function validarLogin(){
-  if (typeof(localStorage) == 'undefined' ) {
-    alert('Tu navegador no soporta HTML5');
-  } else {
-    try {
-        if ((document.forms[0].nombre.value == "admin") && (document.forms[0].password.value == "12345") || 
-            (document.forms[0].nombre.value == "invitado") && (document.forms[0].password.value == "invitado1")) {
-            localStorage.setItem("nombre",document.forms[0].nombre.value); // Guardamos el valor
-            localStorage.setItem("password",document.forms[0].password.value); // Guardamos el valor
-            setTimeout("location='Inicio/inicio.html'")
-        }
-        else
-            alert("Error de usuario");     
-    }catch(e){
-      if (e == QUOTA_EXCEEDED_ERR) {
-        alert('No podemos almacenar mas contenido');
-      }
-    }
-  }
-}
 
 //asigna nombre de usuario actual
 function asignarUsuario(){
@@ -45,12 +23,17 @@ function asignarUsuario(){
 
 //funcion para abrir formulario de estudiante
 function FuncionAgregarEstudiante(){
-      setTimeout("location='formulario.html'")
+  setTimeout("location='formulario.html'")
+}
+
+//funcion para abrir estudiante
+function FuncionAbrirEstudiante(){
+  setTimeout("location= '../Estudiantes/estudiante.html'")
 }
 
 //funcion para abrir formulario de nueva carrera
 function FuncionAgregarCarrera(){
-      setTimeout("location='agregar.html'")
+    setTimeout("location='agregar.html'")
 }
 
 //funcion para abrir formulario de editar carrera
@@ -99,10 +82,7 @@ function salvarCarreraEditada() {
     window.history.back();
 }
 
-
-
-
-//funcion para abrir formulario de editar estudiantte                             jjjjjjjjjjjjjjj
+//funcion para abrir formulario de editar estudiantte                             
 function FuncionEditarEstudiante(){
       estudianteEditar=[];      
       temp = JSON.parse(localStorage.getItem('ArregloEstudiantes'))[($("input:checked").attr("id"))];
@@ -114,7 +94,7 @@ function FuncionEditarEstudiante(){
       setTimeout("location='editar.html'")
 }
 
-//carga datos de estudiante seleccionada de localStorage-Carrera                 jjjjjjjjjjjjjjjjjj
+//carga datos de estudiante seleccionada de localStorage-Carrera                 
 function FuncionGuardarEdicionEstudiante(){
   //convertimos el objeto 
   estudianteEditar = JSON.parse(localStorage.getItem('estudianteEditar'))
@@ -152,8 +132,6 @@ function salvarEstudianteEditado() {
     localStorage.removeItem("estudianteEditar");
     window.history.back();
 }
-
-
 
 //funcion para volvernos a la pag anterior
 function FuncionVolver(){
@@ -193,17 +171,17 @@ function salvarEstudiante() {
 
 //funcion para previsualizar foto del estudiante
 function imgEstudiante(){              
-               if (imagen == null) {
-               imagen = document.createElement("img"); 
-               imagen.id = "imgEstudiante";
-               imagen.src = 'D:/Universidad/Programacion/Progra 5/proyecto2/Estudiantes/' + foto +''; 
-               var div = document.getElementById("imgEstudiante"); 
-               div.appendChild(imagen); 
-            }
-               else
-                imagen.src = 'D:/Universidad/Programacion/Progra 5/proyecto2/Estudiantes/' + foto +''; 
-               var div = document.getElementById("imgEstudiante"); 
-               div.appendChild(imagen);                   
+  if (imagen == null) {
+      imagen = document.createElement("img"); 
+      imagen.id = "imgEstudiante";
+      imagen.src = 'D:/Universidad/Programacion/Progra 5/proyecto2/Estudiantes/' + foto +''; 
+      var div = document.getElementById("imgEstudiante"); 
+      div.appendChild(imagen); 
+  }
+    else
+    imagen.src = 'D:/Universidad/Programacion/Progra 5/proyecto2/Estudiantes/' + foto +''; 
+    var div = document.getElementById("imgEstudiante"); 
+    div.appendChild(imagen);                   
 }
 
 //se usa para almacenar un estudiante en un arreglo
@@ -362,7 +340,6 @@ function FuncionEliminarCarreras(){
   location.reload(true);
 }
 
-
 //Elimina Carreras de localStorage-Carrera
 function FuncionEliminarEstudiante(){
   //convertimos el objeto 
@@ -381,7 +358,6 @@ function FuncionEliminarEstudiante(){
   
   location.reload(true);
 }
-
 
 //extrae nombre de la foto
 function extract(what) {
@@ -465,16 +441,12 @@ function checkbox(){
 
 }
 
-
 //se usa para extraer elementos de un select
 function extraeSelectPais(){
   var posicion=document.getElementById("Carrera").options.selectedIndex; //posicion
   carrera = document.getElementById("Carrera").options[posicion].text; //valor
   alert(carrera);
 }
-
-
-
 
 function checkbotx(){
 $(document).ready(function(){
@@ -490,11 +462,6 @@ $(document).ready(function(){
     localStorage.setItem('selectedItems',JSON.stringify(selectedItems));
 });
 }
-
-
-
-
-
 
 function checkboxxxx(){
 $(document).ready(function(){

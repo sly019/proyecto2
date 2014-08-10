@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Agregar Usuario</title>
+        <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="../style2.css">  
+        <script type="text/javascript" src="jssUsuario.js"></script> 
+        <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    </head>
+    <body>	
+        <div class="wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6"> 
+                        <div id="usser">
+                            <h1>Agregar Usuario</h1>                      
+                            <img id="img_formulario"; src="http://3.bp.blogspot.com/-ZZloaUFEHYc/TvsJGJzqd8I/AAAAAAAAAM4/XAnsNB9kU84/s320/check-and-cross-icons.jpg"> </img>
+                        </div> 
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-4">                 
+                            <form id="usser" action="salvar.php" method="get" name="form_1">
+                                <label for="nombre">Nombre completo</label>
+                                <input type="text" size="16" maxlength="15" id="nombre" name="nombre"></input>
+                                <br/>
+                                <label for="Nick">Nick </label>
+                                <input type="text" size="16" maxlength="15" id="Nick" name="Nick"></input>
+                                <br/>
+                                <label for="Cedula">Cedula</label>
+                                <input type="text" size="16" maxlength="15" id="Cedula" name="Cedula" ></input>
+                                <br/>
+                                <label for="Password">Password</label>
+                                <input type="Password" size="16" maxlength="15" id="PasswordID" name="PasswordID" ></input>
+                                <br/>
+                                <label for="ConfirmarPassword">Confirmar Password</label>
+                                <input type="Password" size="16" maxlength="15" id="confPass" name="Cedula" ></input>
+                            </form>
+                    </div>
+                    <div class="col-md-6">                        
+                        <h2>Roll de usuario</h2>
+                        <label for="Administrador">Administrador</label>
+                        <input type="radio"  id="Administrador" name="opciones"></input> <br /> <br />
+                        <label for="Director de carrera">Director de carrera</label>
+                        <input type="radio"  id="Directordecarrera" name="opciones"></input> <br /> <br />
+                        <label for="Ambos">Ambos</label>
+                        <input type="radio"  id="Ambos" name="opciones"></input> <br/><br/><br/><br/>
+                        <div id="button">                    
+                            <button onfocus="FuncionVolver()">Cancelar</button>
+                            <button onfocus ="salvarUsuario()">Guardar</button>   
+                        </div>                     
+                    </div>
+                </div>
+            </div>                
+        </div>      
+    	<footer>
+        <p>UTN 2014, todos los derechos reservados &copy;</p>
+        </footer>	 
+    </body>
+</html>
+

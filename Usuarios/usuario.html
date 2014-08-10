@@ -3,14 +3,14 @@
 
 	<head>
 	    <meta charset="UTF-8">
-	    <title>Estudiantes</title>     
+	    <title>Carreras</title>     
 	    <link href="../bootstrap/css/bootstrap.css" rel="stylesheet">
 	    <link rel="stylesheet" type="text/css" href="../style2.css">    
 	    <script defer src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	    <script type="text/javascript" src="../jss.js"></script>
-	    <script > window.onload = asignarUsuario; </script>
+	    <script type="text/javascript" src="jssUsuario.js"></script>
+	    <script > window.onload = asignarUsuario </script>
 	</head>
-		<body>
+		<body >
 			<div class="wrapper">
 				<div class="container">
 					<div>
@@ -28,10 +28,10 @@
 				    <nav class="navbar navbar-default navbar-static-top" role="navigation">
 				     	<div class="rowBarra">
 						  <div class="col-md-2"> </div>
-						  <div class="col-md-2"> <a class="label label-info" href="../Inicio/inicio.html">INICIO</a> 	</div>
-						  <div class="col-md-2"> <a class="label label-info" href="../Estudiantes/estudiante.html">ESTUDIANTES</a> 	</div>
-						  <div class="col-md-2"> <a class="label label-info" href="../Carreras/carrera.html">CARRERAS</a> 	</div>
-						  <div class="col-md-2"> <a class="label label-info" href="../Usuarios/usuario.html">USUARIOS</a>  	</div>
+						  <div class="col-md-2"> <a class="label label-info" href="../Inicio/inicio.html">INICIO</a></div>
+						  <div class="col-md-2"> <a class="label label-info" href="../Estudiantes/estudiante.html">ESTUDIANTES</a></div>
+						  <div class="col-md-2"> <a class="label label-info" href="../Carreras/carrera.html">CARRERAS</a></div>
+						  <div class="col-md-2"> <a class="label label-info" href="../Usuarios/usuario.html">USUARIOS</a></div>
 						  <div class="col-md-2"> </div>
 						</div>
 				    </nav >
@@ -45,21 +45,21 @@
 									</TABLE>                             
 				            	</div>
 					            <div class="botonera">
-					                <button class="buttonTable" onfocus ="FuncionEliminarEstudiante()">Eliminar</button>
-					                <button class="buttonTable" onclick="FuncionAgregarEstudiante()">Agregar</button>
-					                <button class="buttonTable" onclick="FuncionEditarEstudiante()">Editar</button>                          
+					                <button class="buttonTable" onfocus ="FuncionEliminarUsuario()">Eliminar</button>
+					                <button class="buttonTable" onclick="FuncionAgregarUsuario()">Agregar</button>
+					                <button class="buttonTable" onclick="FuncionEditarUsuario()">Editar</button>                          
 					            </div> 
 				          </div>
-						  <div class="col-md-3"></div>  
-					</div> 
-				</div>
+						  <div class="col-md-3"></div>
+					</div>				     
+				</div> 
 			</div>
-				<footer>
-	       			<p>UTN 2014, todos los derechos reservados &copy;</p>
-	       		</footer>
-	       	<script type="text/javascript">
-	      	  	crearTablaEstudiante();
-	    	</script>	
+			<footer>
+       			<p>UTN 2014, todos los derechos reservados &copy;</p>
+       		</footer>	
+       		<script type="text/javascript">
+	      	  crearTablaUsuario();
+	    	</script>
 		</body>
 </html>
 
